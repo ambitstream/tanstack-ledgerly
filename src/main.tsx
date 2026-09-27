@@ -1,6 +1,5 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { worker } from './mocks/browser.ts';
 import './index.css'
 import App from './App.tsx'
 
@@ -11,6 +10,7 @@ const init = async () => {
     const queryClient = new QueryClient();
 
     if (import.meta.env.DEV) {
+      const { worker } = await import('./mocks/browser.ts')
       await worker.start();
     }
     createRoot(document.getElementById('root')!).render(

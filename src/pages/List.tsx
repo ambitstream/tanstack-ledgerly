@@ -13,7 +13,7 @@ const getTransactions = async (): Promise<Item[]> => {
 }
 
 function List() {
-  const { isPending, error, status, data, isFetching } = useQuery({
+  const { isPending, isError, data, isFetching } = useQuery({
     queryKey: ['transactions'],
     queryFn: getTransactions
   });
@@ -24,7 +24,7 @@ function List() {
     );
   }
 
-  if (error || status !== 'success') {
+  if (isError) {
     return (
       <div>Something went wrong</div>
     )
@@ -35,7 +35,7 @@ function List() {
       {isFetching && <div>Loading...</div>}
       {data && data.length > 0 ? data.map((item) =>
         <div key={item.id}>{item.title}</div>
-      ) : ''}
+      ) : <div>The list is empty</div>}
     </div>
   )
 }
