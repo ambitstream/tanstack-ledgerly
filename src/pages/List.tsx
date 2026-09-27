@@ -8,8 +8,11 @@ type Item = {
 }
 
 const getTransactions = async (): Promise<Item[]> => {
-  const response = await fetch('/api/transactions');
-  return await response.json();
+    const response = await fetch('/api/transactions');
+
+    if (!response.ok) throw new Error();
+
+    return await response.json();
 }
 
 function List() {
@@ -33,7 +36,7 @@ function List() {
   return (
     <div>
       {isFetching && <div>Loading...</div>}
-      {data && data.length > 0 ? data.map((item) =>
+      {data.length > 0 ? data.map((item) =>
         <div key={item.id}>{item.title}</div>
       ) : <div>The list is empty</div>}
     </div>
