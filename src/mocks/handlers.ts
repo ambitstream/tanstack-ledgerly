@@ -1,19 +1,12 @@
-import { http, HttpResponse } from 'msw'
- 
+import { http, delay, HttpResponse } from "msw";
+import transactions from "./transactions.json";
+
 export const handlers = [
-  http.get('/api/transactions', () => {
-    return HttpResponse.json([{
-      id: 1,
-      userId: 1,
-      title: 'Test title 1',
-    }, {
-      id: 2,
-      userId: 2,
-      title: 'Test title 2',
-    }, {
-      id: 3,
-      userId: 3,
-      title: 'Test title 3',
-    }])
+  http.all("*", async () => {
+    await delay(1000);
+  }),
+  http.get("/api/transactions", () => {
+    const random = Math.floor(Math.random() * 100);
+    return HttpResponse.json(transactions, random <= 10 ? { status: 500 } : {});
   }),
 ];

@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "date": "2026-09-28T10:20:23.156Z",
+    "amount": 100,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Seaside restaurant"
+  },
+  {
+    "id": 2,
+    "date": "2026-09-27T14:35:11.421Z",
+    "amount": 45.5,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Grocery store"
+  },
+  {
+    "id": 3,
+    "date": "2026-09-26T08:12:45.782Z",
+    "amount": 2500,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Salary payment"
+  },
+  {
+    "id": 4,
+    "date": "2026-09-25T18:44:32.105Z",
+    "amount": 29.99,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Gym membership"
+  },
+  {
+    "id": 5,
+    "date": "2026-09-24T11:05:17.912Z",
+    "amount": 12.8,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Coffee shop"
+  },
+  {
+    "id": 6,
+    "date": "2026-09-23T16:27:54.321Z",
+    "amount": 75,
+    "currency": "EUR",
+    "status": "PENDING",
+    "category": "OUTCOME",
+    "description": "Online shopping"
+  },
+  {
+    "id": 7,
+    "date": "2026-09-22T09:18:41.662Z",
+    "amount": 120,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Freelance payment"
+  },
+  {
+    "id": 8,
+    "date": "2026-09-21T20:41:06.117Z",
+    "amount": 38.4,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Dinner with friends"
+  },
+  {
+    "id": 9,
+    "date": "2026-09-20T13:15:29.846Z",
+    "amount": 64.9,
+    "currency": "EUR",
+    "status": "FAILED",
+    "category": "OUTCOME",
+    "description": "Electronics store"
+  },
+  {
+    "id": 10,
+    "date": "2026-09-19T07:55:12.513Z",
+    "amount": 3.5,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Bus ticket"
+  },
+  {
+    "id": 11,
+    "date": "2026-09-18T17:32:48.229Z",
+    "amount": 850,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Apartment rent"
+  },
+  {
+    "id": 12,
+    "date": "2026-09-17T12:08:37.654Z",
+    "amount": 24.75,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Pharmacy"
+  },
+  {
+    "id": 13,
+    "date": "2026-09-16T19:22:15.003Z",
+    "amount": 56.2,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Fuel station"
+  },
+  {
+    "id": 14,
+    "date": "2026-09-15T10:47:51.998Z",
+    "amount": 350,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Project payment"
+  },
+  {
+    "id": 15,
+    "date": "2026-09-14T15:36:24.731Z",
+    "amount": 19.99,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Streaming subscription"
+  },
+  {
+    "id": 16,
+    "date": "2026-09-13T21:14:09.447Z",
+    "amount": 42,
+    "currency": "EUR",
+    "status": "PENDING",
+    "category": "OUTCOME",
+    "description": "Food delivery"
+  },
+  {
+    "id": 17,
+    "date": "2026-09-12T08:29:33.674Z",
+    "amount": 89.9,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Internet bill"
+  },
+  {
+    "id": 18,
+    "date": "2026-09-11T14:53:27.291Z",
+    "amount": 15.3,
+    "currency": "EUR",
+    "status": "FAILED",
+    "category": "OUTCOME",
+    "description": "Taxi ride"
+  },
+  {
+    "id": 19,
+    "date": "2026-09-10T11:42:18.806Z",
+    "amount": 200,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Refund"
+  },
+  {
+    "id": 20,
+    "date": "2026-09-09T18:06:55.349Z",
+    "amount": 31.6,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Supermarket"
+  }
+]
