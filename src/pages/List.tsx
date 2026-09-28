@@ -7,13 +7,13 @@ const getTransactions = async () => {
   if (!response.ok) throw new Error("Response error");
 
   const data = await response.json();
+  const validation = TransactionsSchema.safeParse(data);
 
-  try {
-    TransactionsSchema.parse(data);
-  } catch (error) {
-    console.error("Transaction validation failed:", error);
+  if (validation.success) {
+    return validation.data;
+  } else {
+    throw new Error("Transactions validation error");
   }
-  return data;
 };
 
 function List() {
