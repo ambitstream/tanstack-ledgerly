@@ -1,12 +1,19 @@
 import { useQuery } from "@tanstack/react-query";
-import { type Transaction } from "../types/transaction.types";
+import { TransactionsSchema } from "../schema/transactions";
 
-const getTransactions = async (): Promise<Transaction[]> => {
+const getTransactions = async () => {
   const response = await fetch("/api/transactions");
 
   if (!response.ok) throw new Error("Response error");
 
-  return await response.json();
+  const data = await response.json();
+
+  try {
+    TransactionsSchema.parse(data);
+  } catch (error) {
+    console.error("Transaction validation failed:", error);
+  }
+  return data;
 };
 
 function List() {
