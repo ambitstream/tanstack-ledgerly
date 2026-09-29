@@ -1,25 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { TransactionsSchema } from "../schema/transactions";
+import { getTransactions } from "./api";
+import { retryFunction } from "../../api/retryFunction";
 
-const getTransactions = async () => {
-  const response = await fetch("/api/transactions");
-
-  if (!response.ok) throw new Error("Response error");
-
-  const data = await response.json();
-  const validation = TransactionsSchema.safeParse(data);
-
-  if (validation.success) {
-    return validation.data;
-  } else {
-    throw new Error("Transactions validation error");
-  }
-};
-
-function List() {
+function TransactionsList() {
   const { isPending, isError, data, isFetching } = useQuery({
     queryKey: ["transactions"],
     queryFn: getTransactions,
+    retry: retryFunction,
   });
 
   if (isPending) {
@@ -42,4 +29,4 @@ function List() {
   );
 }
 
-export default List;
+export default TransactionsList;

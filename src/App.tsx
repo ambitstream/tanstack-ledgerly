@@ -1,8 +1,7 @@
-import "./App.css";
-import List from "./pages/List";
+import TransactionsList from "./features/transactions/TransactionsList";
 
 function App() {
-  return <List />;
+  return <TransactionsList />;
 }
 
 export default App;

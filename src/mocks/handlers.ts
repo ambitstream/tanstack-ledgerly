@@ -1,6 +1,6 @@
 import { http, delay, HttpResponse } from "msw";
 import transactions from "./transactions.json";
-import { randomIntFromInterval } from "../utils/helpers";
+import { randomIntFromInterval } from "./helpers";
 
 export const handlers = [
   http.get("/api/transactions", async () => {

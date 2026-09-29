@@ -4,9 +4,9 @@ export const TransactionSchema = z.object({
   id: z.number(),
   date: z.string(),
   amount: z.number(),
-  currency: z.string(),
-  status: z.string(),
-  category: z.string(),
+  currency: z.enum(["EUR", "USD"]),
+  status: z.enum(["SUCCESS", "PENDING", "FAILED"]),
+  category: z.enum(["INCOME", "OUTCOME"]),
   description: z.string(),
 });
 
