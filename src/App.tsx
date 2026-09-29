@@ -1,4 +1,4 @@
-import TransactionsList from "./features/transactions/TransactionsList";
+import { TransactionsList } from "./features/transactions/TransactionsList";
 
 function App() {
   return <TransactionsList />;

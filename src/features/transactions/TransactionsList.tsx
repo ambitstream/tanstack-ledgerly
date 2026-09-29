@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
 import { getTransactions } from "./api";
-import { retryFunction } from "../../api/retryFunction";
+import { shouldRetry } from "../../api/shouldRetry";
 
-function TransactionsList() {
+export function TransactionsList() {
   const { isPending, isError, data, isFetching } = useQuery({
     queryKey: ["transactions"],
     queryFn: getTransactions,
-    retry: retryFunction,
+    retry: shouldRetry,
   });
 
   if (isPending) {
@@ -28,5 +28,3 @@ function TransactionsList() {
     </div>
   );
 }
-
-export default TransactionsList;
