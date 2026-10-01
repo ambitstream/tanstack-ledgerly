@@ -178,5 +178,275 @@
     "status": "SUCCESS",
     "category": "OUTCOME",
     "description": "Supermarket"
+  },
+  {
+    "id": 21,
+    "date": "2026-09-08T07:40:12.184Z",
+    "amount": 8.2,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Bakery"
+  },
+  {
+    "id": 22,
+    "date": "2026-09-07T16:18:43.527Z",
+    "amount": 135,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Utility bills"
+  },
+  {
+    "id": 23,
+    "date": "2026-09-06T10:24:31.905Z",
+    "amount": 600,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Client invoice"
+  },
+  {
+    "id": 24,
+    "date": "2026-09-05T12:51:08.346Z",
+    "amount": 27.45,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Bookstore"
+  },
+  {
+    "id": 25,
+    "date": "2026-09-04T17:33:25.716Z",
+    "amount": 52.99,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Clothing store"
+  },
+  {
+    "id": 26,
+    "date": "2026-09-03T08:07:49.253Z",
+    "amount": 6.5,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Metro ticket"
+  },
+  {
+    "id": 27,
+    "date": "2026-09-02T19:46:14.689Z",
+    "amount": 125.75,
+    "currency": "EUR",
+    "status": "PENDING",
+    "category": "OUTCOME",
+    "description": "Hotel booking"
+  },
+  {
+    "id": 28,
+    "date": "2026-09-01T09:15:36.472Z",
+    "amount": 90,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Cashback reward"
+  },
+  {
+    "id": 29,
+    "date": "2026-08-31T14:28:57.831Z",
+    "amount": 44.6,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Home supplies"
+  },
+  {
+    "id": 30,
+    "date": "2026-08-30T20:12:19.064Z",
+    "amount": 18,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Cinema tickets"
+  },
+  {
+    "id": 31,
+    "date": "2026-08-29T11:39:42.518Z",
+    "amount": 220,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Freelance payment"
+  },
+  {
+    "id": 32,
+    "date": "2026-08-28T15:56:07.293Z",
+    "amount": 67.3,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Electricity bill"
+  },
+  {
+    "id": 33,
+    "date": "2026-08-27T13:04:51.746Z",
+    "amount": 11.25,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Lunch cafe"
+  },
+  {
+    "id": 34,
+    "date": "2026-08-26T18:21:34.982Z",
+    "amount": 499.99,
+    "currency": "EUR",
+    "status": "FAILED",
+    "category": "OUTCOME",
+    "description": "Flight tickets"
+  },
+  {
+    "id": 35,
+    "date": "2026-08-25T09:43:16.337Z",
+    "amount": 23.7,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Mobile phone bill"
+  },
+  {
+    "id": 36,
+    "date": "2026-08-24T16:08:28.651Z",
+    "amount": 150,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Birthday gift"
+  },
+  {
+    "id": 37,
+    "date": "2026-08-23T12:37:05.194Z",
+    "amount": 34.8,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Pet supplies"
+  },
+  {
+    "id": 38,
+    "date": "2026-08-22T07:52:41.823Z",
+    "amount": 9.99,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Cloud storage subscription"
+  },
+  {
+    "id": 39,
+    "date": "2026-08-21T17:19:53.468Z",
+    "amount": 72.1,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Weekly groceries"
+  },
+  {
+    "id": 40,
+    "date": "2026-08-20T22:06:27.315Z",
+    "amount": 28,
+    "currency": "EUR",
+    "status": "PENDING",
+    "category": "OUTCOME",
+    "description": "Taxi ride"
+  },
+  {
+    "id": 41,
+    "date": "2026-08-19T10:31:44.907Z",
+    "amount": 1000,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Performance bonus"
+  },
+  {
+    "id": 42,
+    "date": "2026-08-18T14:48:09.572Z",
+    "amount": 14.5,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Museum ticket"
+  },
+  {
+    "id": 43,
+    "date": "2026-08-17T08:26:38.149Z",
+    "amount": 49.99,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Software license"
+  },
+  {
+    "id": 44,
+    "date": "2026-08-16T11:17:56.734Z",
+    "amount": 95,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Dental appointment"
+  },
+  {
+    "id": 45,
+    "date": "2026-08-15T16:42:23.086Z",
+    "amount": 30,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Dividend payment"
+  },
+  {
+    "id": 46,
+    "date": "2026-08-14T13:09:47.621Z",
+    "amount": 16.75,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Haircut"
+  },
+  {
+    "id": 47,
+    "date": "2026-08-13T18:35:12.458Z",
+    "amount": 80,
+    "currency": "EUR",
+    "status": "PENDING",
+    "category": "OUTCOME",
+    "description": "Furniture deposit"
+  },
+  {
+    "id": 48,
+    "date": "2026-08-12T09:58:34.207Z",
+    "amount": 5.4,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "OUTCOME",
+    "description": "Parking fee"
+  },
+  {
+    "id": 49,
+    "date": "2026-08-11T15:24:51.893Z",
+    "amount": 210,
+    "currency": "EUR",
+    "status": "FAILED",
+    "category": "OUTCOME",
+    "description": "Car repair"
+  },
+  {
+    "id": 50,
+    "date": "2026-08-10T12:46:18.532Z",
+    "amount": 55,
+    "currency": "EUR",
+    "status": "SUCCESS",
+    "category": "INCOME",
+    "description": "Tutoring payment"
   }
 ]

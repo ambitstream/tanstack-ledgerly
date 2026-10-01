@@ -10,7 +10,11 @@ export const TransactionSchema = z.object({
   description: z.string(),
 });
 
-export const TransactionsSchema = z.array(TransactionSchema);
+export const TransactionsListSchema = z.object({
+  page: z.number(),
+  pageSize: z.number(),
+  total: z.number(),
+  items: z.array(TransactionSchema),
+});
 
 export type Transaction = z.infer<typeof TransactionSchema>;
-export type Transactions = z.infer<typeof TransactionsSchema>;
