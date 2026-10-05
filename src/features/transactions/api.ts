@@ -1,14 +1,17 @@
 import { HttpError } from "../../api/httpError";
 import { TransactionsListSchema } from "./schema";
-import { DEFAULT_PAGE_SIZE } from "../../constants";
+import type { TransactionsSearchParams } from "./schema";
 
-export const getTransactions = async ({
-  page = 1,
-  pageSize = DEFAULT_PAGE_SIZE,
-}) => {
-  const response = await fetch(
-    `/api/transactions?page=${page}&pageSize=${pageSize}`,
-  );
+export const getTransactions = async (paramsObj: TransactionsSearchParams) => {
+  const params = new URLSearchParams();
+
+  for (const item of Object.entries(paramsObj)) {
+    if (item[1] !== undefined) {
+      params.set(item[0], item[1].toString());
+    }
+  }
+
+  const response = await fetch(`/api/transactions?${params.toString()}`);
 
   if (!response.ok) {
     throw new HttpError(response.status, "Response error");

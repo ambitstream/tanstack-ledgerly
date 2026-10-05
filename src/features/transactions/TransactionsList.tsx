@@ -1,17 +1,31 @@
-import { useState } from "react";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import { useSearchParams } from "react-router";
 import { getTransactions } from "./api";
 import { shouldRetry } from "../../api/shouldRetry";
-import { Header } from "../../components/Header";
-import { Pagination } from "../../components/Pagination";
-import { DEFAULT_PAGE_SIZE } from "../../constants";
+import { Header, Pagination } from "../../components";
+import { TransactionItem } from "./TransactionItem";
+import { TransactionsFilter } from "./TransactionsFilter";
+
+import { TransactionsSearchParamsSchema } from "./schema";
 
 export function TransactionsList() {
-  const [page, setPage] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = Number(searchParams.get("page"));
+
+  const onPageChange = (_page: number) => {
+    setSearchParams((_searchParams) => {
+      _searchParams.set("page", _page.toString());
+      return _searchParams;
+    });
+  };
+
+  const transactionsSearchParams = TransactionsSearchParamsSchema.parse(
+    Object.fromEntries(searchParams),
+  );
 
   const { isPending, isError, data, isFetching, isPlaceholderData } = useQuery({
-    queryKey: ["transactions", page, DEFAULT_PAGE_SIZE],
-    queryFn: () => getTransactions({ page, pageSize: DEFAULT_PAGE_SIZE }),
+    queryKey: ["transactions", transactionsSearchParams],
+    queryFn: () => getTransactions(transactionsSearchParams),
     retry: shouldRetry,
     placeholderData: keepPreviousData,
   });
@@ -29,22 +43,23 @@ export function TransactionsList() {
   return (
     <div>
       <Header isFetching={isFetching} />
+      <TransactionsFilter />
+      <hr />
       <div className={isPlaceholderData ? "disabled" : ""}>
-        {items.length > 0 ? (
-          items.map((item) => (
-            <div key={item.id}>
-              {item.id}: {item.description}
-            </div>
-          ))
-        ) : (
-          <div>The list is empty</div>
-        )}
+        <div className="transactions-list-container">
+          {items.length > 0 ? (
+            items.map((item) => <TransactionItem key={item.id} data={item} />)
+          ) : (
+            <div>The list is empty</div>
+          )}
+        </div>
       </div>
+      <hr />
       <Pagination
         pageSize={pageSize}
         total={total}
         page={page}
-        onPageChange={setPage}
+        onPageChange={onPageChange}
       />
     </div>
   );

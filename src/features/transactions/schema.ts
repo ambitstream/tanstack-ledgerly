@@ -1,12 +1,15 @@
 import * as z from "zod";
 
+export const StatusSchema = z.enum(["SUCCESS", "PENDING", "FAILED"]);
+export const CategorySchema = z.enum(["INCOME", "OUTCOME"]);
+
 export const TransactionSchema = z.object({
   id: z.number(),
   date: z.string(),
   amount: z.number(),
   currency: z.enum(["EUR", "USD"]),
-  status: z.enum(["SUCCESS", "PENDING", "FAILED"]),
-  category: z.enum(["INCOME", "OUTCOME"]),
+  status: StatusSchema,
+  category: CategorySchema,
   description: z.string(),
 });
 
@@ -17,4 +20,13 @@ export const TransactionsListSchema = z.object({
   items: z.array(TransactionSchema),
 });
 
+export const TransactionsSearchParamsSchema = z.object({
+  page: z.coerce.number().catch(1),
+  status: z.optional(StatusSchema).catch(undefined),
+  category: z.optional(CategorySchema).catch(undefined),
+});
+
 export type Transaction = z.infer<typeof TransactionSchema>;
+export type TransactionsSearchParams = z.infer<
+  typeof TransactionsSearchParamsSchema
+>;
