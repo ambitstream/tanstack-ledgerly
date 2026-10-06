@@ -71,3 +71,8 @@ export default defineConfig([
   },
 ]);
 ```
+
+## What I'd do with more time
+
+- **Remove duplication in URL param handlers.** `onFilterChange` and `onPageChange` share the same mechanics (set or delete a search param). Extract a low-level helper `updateParams(changes)` that deletes a key when the value is empty and sets it otherwise. Both handlers then become one-liners: `onFilterChange` calls it with the changed filter and `page: 1`, `onPageChange` calls it with the page only. Keep two handlers named by intent instead of one function with a `resetPage` boolean flag.
+- **Custom hook `useTransactionsSearchParams()`.** Move URL parsing (zod schema), `updateParams` and both handlers into a hook that returns parsed params and handlers, so `TransactionsList` does not know that its state lives in the URL.

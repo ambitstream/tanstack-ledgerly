@@ -21,12 +21,14 @@ export const TransactionsListSchema = z.object({
 });
 
 export const TransactionsSearchParamsSchema = z.object({
-  page: z.coerce.number().catch(1),
+  page: z.coerce.number().int().gte(1).catch(1),
   status: z.optional(StatusSchema).catch(undefined),
   category: z.optional(CategorySchema).catch(undefined),
 });
 
 export type Transaction = z.infer<typeof TransactionSchema>;
+export type Status = z.infer<typeof StatusSchema>;
+export type Category = z.infer<typeof CategorySchema>;
 export type TransactionsSearchParams = z.infer<
   typeof TransactionsSearchParamsSchema
 >;

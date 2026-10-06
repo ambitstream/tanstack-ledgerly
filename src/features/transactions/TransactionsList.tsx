@@ -10,7 +10,24 @@ import { TransactionsSearchParamsSchema } from "./schema";
 
 export function TransactionsList() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const page = Number(searchParams.get("page"));
+
+  const params = TransactionsSearchParamsSchema.parse(
+    Object.fromEntries(searchParams),
+  );
+
+  const { page, status, category } = params;
+
+  const onFilterChange = (name: string, value: string) => {
+    setSearchParams((_searchParams) => {
+      if (!value) {
+        _searchParams.delete(name);
+      } else {
+        _searchParams.set(name, value);
+      }
+      _searchParams.set("page", "1");
+      return _searchParams;
+    });
+  };
 
   const onPageChange = (_page: number) => {
     setSearchParams((_searchParams) => {
@@ -19,13 +36,9 @@ export function TransactionsList() {
     });
   };
 
-  const transactionsSearchParams = TransactionsSearchParamsSchema.parse(
-    Object.fromEntries(searchParams),
-  );
-
   const { isPending, isError, data, isFetching, isPlaceholderData } = useQuery({
-    queryKey: ["transactions", transactionsSearchParams],
-    queryFn: () => getTransactions(transactionsSearchParams),
+    queryKey: ["transactions", params],
+    queryFn: () => getTransactions(params),
     retry: shouldRetry,
     placeholderData: keepPreviousData,
   });
@@ -43,7 +56,11 @@ export function TransactionsList() {
   return (
     <div>
       <Header isFetching={isFetching} />
-      <TransactionsFilter />
+      <TransactionsFilter
+        status={status}
+        category={category}
+        onFilterChange={onFilterChange}
+      />
       <hr />
       <div className={isPlaceholderData ? "disabled" : ""}>
         <div className="transactions-list-container">

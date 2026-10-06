@@ -5,9 +5,9 @@ import type { TransactionsSearchParams } from "./schema";
 export const getTransactions = async (paramsObj: TransactionsSearchParams) => {
   const params = new URLSearchParams();
 
-  for (const item of Object.entries(paramsObj)) {
-    if (item[1] !== undefined) {
-      params.set(item[0], item[1].toString());
+  for (const [key, value] of Object.entries(paramsObj)) {
+    if (value !== undefined) {
+      params.set(key, value.toString());
     }
   }
 
