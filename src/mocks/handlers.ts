@@ -14,12 +14,14 @@ export const handlers = [
       Object.fromEntries(searchParams),
     );
 
-    const { status, category, page } = params;
+    const { status, category, page, search } = params;
 
     const filteredTransactions = transactions.filter((item) => {
       return (
         (!status || item.status === status) &&
-        (!category || item.category === category)
+        (!category || item.category === category) &&
+        (!search ||
+          item.description.toLowerCase().includes(search.toLowerCase()))
       );
     });
 

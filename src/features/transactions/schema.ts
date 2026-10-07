@@ -24,6 +24,7 @@ export const TransactionsSearchParamsSchema = z.object({
   page: z.coerce.number().int().gte(1).catch(1),
   status: z.optional(StatusSchema).catch(undefined),
   category: z.optional(CategorySchema).catch(undefined),
+  search: z.optional(z.string()),
 });
 
 export type Transaction = z.infer<typeof TransactionSchema>;

@@ -2,7 +2,7 @@ import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import { useSearchParams } from "react-router";
 import { getTransactions } from "./api";
 import { shouldRetry } from "../../api/shouldRetry";
-import { Header, Pagination } from "../../components";
+import { Header, Pagination, SearchBar } from "../../components";
 import { TransactionItem } from "./TransactionItem";
 import { TransactionsFilter } from "./TransactionsFilter";
 
@@ -15,7 +15,7 @@ export function TransactionsList() {
     Object.fromEntries(searchParams),
   );
 
-  const { page, status, category } = params;
+  const { page, status, category, search } = params;
 
   const onFilterChange = (name: string, value: string) => {
     setSearchParams((_searchParams) => {
@@ -56,11 +56,18 @@ export function TransactionsList() {
   return (
     <div>
       <Header isFetching={isFetching} />
-      <TransactionsFilter
-        status={status}
-        category={category}
-        onFilterChange={onFilterChange}
-      />
+      <div className="d-flex">
+        <div className="flex-2">
+          <TransactionsFilter
+            status={status}
+            category={category}
+            onFilterChange={onFilterChange}
+          />
+        </div>
+        <div className="d-flex flex-1 justify-content-end">
+          <SearchBar onFilterChange={onFilterChange} search={search || ""} />
+        </div>
+      </div>
       <hr />
       <div className={isPlaceholderData ? "disabled" : ""}>
         <div className="transactions-list-container">
