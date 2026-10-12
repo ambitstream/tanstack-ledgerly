@@ -1,7 +1,6 @@
-import { useQuery, keepPreviousData } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "react-router";
-import { getTransactions } from "./api";
-import { shouldRetry } from "../../api/shouldRetry";
+import { transactionListQueryOptions } from "./queries";
 import { Header, Pagination, SearchBar } from "../../components";
 import { TransactionItem } from "./TransactionItem";
 import { TransactionsFilter } from "./TransactionsFilter";
@@ -36,12 +35,9 @@ export function TransactionsList() {
     });
   };
 
-  const { isPending, isError, data, isFetching, isPlaceholderData } = useQuery({
-    queryKey: ["transactions", params],
-    queryFn: () => getTransactions(params),
-    retry: shouldRetry,
-    placeholderData: keepPreviousData,
-  });
+  const { isPending, isError, data, isFetching, isPlaceholderData } = useQuery(
+    transactionListQueryOptions(params),
+  );
 
   if (isPending) {
     return <div>There is no data yet</div>;
