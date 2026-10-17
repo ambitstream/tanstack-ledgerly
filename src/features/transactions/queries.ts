@@ -1,7 +1,7 @@
 import { shouldRetry } from "../../api/shouldRetry";
 import { queryOptions, keepPreviousData } from "@tanstack/react-query";
 import type { TransactionsSearchParams } from "./schema";
-import { getTransactions } from "./api";
+import { getTransactions, getTransaction } from "./api";
 
 export const transactionKeys = {
   all: ["transactions"] as const,
@@ -20,5 +20,13 @@ export const transactionListQueryOptions = (
     queryFn: () => getTransactions(params),
     retry: shouldRetry,
     placeholderData: keepPreviousData,
+  });
+};
+
+export const transactionDetailsQueryOptions = (id: number) => {
+  return queryOptions({
+    queryKey: transactionKeys.detail(id),
+    queryFn: () => getTransaction(id),
+    retry: shouldRetry,
   });
 };

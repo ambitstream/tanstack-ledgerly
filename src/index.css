@@ -57,15 +57,21 @@
 }
 
 #root {
-  width: 800px;
-  max-width: 100%;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+}
+
+.list-holder,
+.details-holder {
   border-inline: 1px solid var(--border);
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 15px;
+}
+
+.details-holder {
+    width: 340px;
 }
 
 body {
@@ -189,4 +195,12 @@ hr {
 }
 .alert {
     color: var(--alert);
+}
+
+.link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.link:hover {
+  text-decoration: none;
 }

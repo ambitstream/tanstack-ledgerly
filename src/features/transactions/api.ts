@@ -1,5 +1,5 @@
 import { HttpError } from "../../api/httpError";
-import { TransactionsListSchema } from "./schema";
+import { TransactionsListSchema, TransactionSchema } from "./schema";
 import type { TransactionsSearchParams } from "./schema";
 
 export const getTransactions = async (paramsObj: TransactionsSearchParams) => {
@@ -20,4 +20,15 @@ export const getTransactions = async (paramsObj: TransactionsSearchParams) => {
   const rawData = await response.json();
 
   return TransactionsListSchema.parse(rawData);
+};
+
+export const getTransaction = async (id: number) => {
+  const response = await fetch(`/api/transactions/${id}`);
+
+  if (!response.ok) {
+    throw new HttpError(response.status, "Response error");
+  }
+  const rawData = await response.json();
+
+  return TransactionSchema.parse(rawData);
 };

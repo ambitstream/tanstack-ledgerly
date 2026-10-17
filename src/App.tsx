@@ -1,7 +1,13 @@
 import { TransactionsList } from "./features/transactions/TransactionsList";
+import { TransactionPanel } from "./features/transactions/TransactionPanel";
 
 function App() {
-  return <TransactionsList />;
+  return (
+    <>
+      <TransactionsList />
+      <TransactionPanel />
+    </>
+  );
 }
 
 export default App;

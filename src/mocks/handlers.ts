@@ -1,8 +1,11 @@
 import { http, delay, HttpResponse } from "msw";
+import * as z from "zod";
 import transactions from "./transactions.json";
 import { randomIntFromInterval } from "./helpers";
 import { DEFAULT_PAGE_SIZE } from "../constants";
 import { TransactionsSearchParamsSchema } from "../features/transactions/schema";
+
+const getRandom = () => Math.floor(Math.random() * 100);
 
 export const handlers = [
   http.get("/api/transactions", async ({ request }) => {
@@ -32,11 +35,31 @@ export const handlers = [
     const to = from + pageSize;
     const items = filteredTransactions.slice(from, to);
 
-    const random = Math.floor(Math.random() * 100);
-
     return HttpResponse.json(
       { items, page, pageSize, total },
-      random < 10 ? { status: 500 } : {},
+      getRandom() < 10 ? { status: 500 } : {},
+    );
+  }),
+  http.get("/api/transactions/:id", async ({ params }) => {
+    await delay(randomIntFromInterval(300, 800));
+    const id = z.coerce.number().parse(params.id);
+
+    const transaction = transactions.find((item) => {
+      return item.id === id;
+    });
+
+    if (!id || !transaction) {
+      return HttpResponse.json(
+        {},
+        {
+          status: 404,
+        },
+      );
+    }
+
+    return HttpResponse.json(
+      transaction,
+      getRandom() < 10 ? { status: 500 } : {},
     );
   }),
 ];

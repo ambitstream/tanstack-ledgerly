@@ -6,12 +6,20 @@ const statusClass = {
   PENDING: "warning",
 };
 
-export function TransactionItem({ data }: { data: Transaction }) {
+export function TransactionItem({
+  data,
+  onPress,
+}: {
+  data: Transaction;
+  onPress: () => void;
+}) {
   const isOutcome = data.category === "OUTCOME";
   return (
     <>
       <div>{new Date(data.date).toISOString().split("T")[0]}:</div>
-      <div>{data.description}</div>
+      <div className="link" onClick={onPress}>
+        {data.description}
+      </div>
       <div className={!isOutcome ? "success" : ""}>
         {isOutcome && "-"}
         {data.amount} {data.currency}

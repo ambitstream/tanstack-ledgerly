@@ -27,6 +27,10 @@ export const TransactionsSearchParamsSchema = z.object({
   search: z.optional(z.string()),
 });
 
+export const TransactionDetailsSchema = z.object({
+  selected: z.optional(z.coerce.number()).catch(undefined),
+});
+
 export type Transaction = z.infer<typeof TransactionSchema>;
 export type Status = z.infer<typeof StatusSchema>;
 export type Category = z.infer<typeof CategorySchema>;

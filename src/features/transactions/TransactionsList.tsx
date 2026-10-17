@@ -35,6 +35,13 @@ export function TransactionsList() {
     });
   };
 
+  const onItemPress = (id: number) => {
+    setSearchParams((_searchParams) => {
+      _searchParams.set("selected", id.toString());
+      return _searchParams;
+    });
+  };
+
   const { isPending, isError, data, isFetching, isPlaceholderData } = useQuery(
     transactionListQueryOptions(params),
   );
@@ -68,7 +75,13 @@ export function TransactionsList() {
       <div className={isPlaceholderData ? "disabled" : ""}>
         <div className="transactions-list-container">
           {items.length > 0 ? (
-            items.map((item) => <TransactionItem key={item.id} data={item} />)
+            items.map((item) => (
+              <TransactionItem
+                onPress={() => onItemPress(item.id)}
+                key={item.id}
+                data={item}
+              />
+            ))
           ) : (
             <div>The list is empty</div>
           )}
