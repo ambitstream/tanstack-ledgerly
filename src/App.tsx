@@ -3,10 +3,10 @@ import { TransactionPanel } from "./features/transactions/TransactionPanel";
 
 function App() {
   return (
-    <>
+    <div className="layout">
       <TransactionsList />
       <TransactionPanel />
-    </>
+    </div>
   );
 }
 

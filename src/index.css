@@ -56,10 +56,9 @@
   }
 }
 
-#root {
-  display: flex;
-  flex-direction: row;
-  padding: 15px;
+.layout {
+    display: flex;
+    height: 100vh;
 }
 
 .list-holder,
@@ -68,10 +67,16 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  padding: 15px;
+}
+
+.list-holder {
+    flex: 2;
 }
 
 .details-holder {
-    width: 340px;
+    /* width: 340px; */
+    flex: 1;
 }
 
 body {
@@ -182,6 +187,9 @@ hr {
     border: 1px solid var(--border);
 }
 
+.transactions-list-holder {
+    height: calc(100vh - 180px);
+}
 .transactions-list-container {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr 1fr; 

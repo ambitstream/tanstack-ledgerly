@@ -46,18 +46,21 @@ export function TransactionsList() {
     transactionListQueryOptions(params),
   );
 
-  if (isPending) {
-    return <div>There is no data yet</div>;
-  }
-
-  if (isError) {
-    return <div>Something went wrong</div>;
+  if (isPending || isError) {
+    return (
+      <div className="list-holder">
+        <Header isFetching={isFetching} />
+        <div>
+          {isPending ? "Loading…" : isError ? "Something went wrong" : ""}
+        </div>
+      </div>
+    );
   }
 
   const { items, pageSize, total } = data;
 
   return (
-    <div>
+    <div className="list-holder">
       <Header isFetching={isFetching} />
       <div className="d-flex">
         <div className="flex-2">
@@ -73,18 +76,20 @@ export function TransactionsList() {
       </div>
       <hr />
       <div className={isPlaceholderData ? "disabled" : ""}>
-        <div className="transactions-list-container">
-          {items.length > 0 ? (
-            items.map((item) => (
-              <TransactionItem
-                onPress={() => onItemPress(item.id)}
-                key={item.id}
-                data={item}
-              />
-            ))
-          ) : (
-            <div>The list is empty</div>
-          )}
+        <div className="transactions-list-holder">
+          <div className="transactions-list-container">
+            {items.length > 0 ? (
+              items.map((item) => (
+                <TransactionItem
+                  onPress={() => onItemPress(item.id)}
+                  key={item.id}
+                  data={item}
+                />
+              ))
+            ) : (
+              <div>The list is empty</div>
+            )}
+          </div>
         </div>
       </div>
       <hr />
