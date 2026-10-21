@@ -1,6 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient, noop } from "@tanstack/react-query";
 import { useSearchParams } from "react-router";
-import { transactionListQueryOptions } from "./queries";
+import {
+  transactionListQueryOptions,
+  transactionDetailsQueryOptions,
+} from "./queries";
 import { Header, Pagination, SearchBar } from "../../components";
 import { TransactionItem } from "./TransactionItem";
 import { TransactionsFilter } from "./TransactionsFilter";
@@ -9,6 +12,7 @@ import { TransactionsSearchParamsSchema } from "./schema";
 
 export function TransactionsList() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const queryClient = useQueryClient();
 
   const params = TransactionsSearchParamsSchema.parse(
     Object.fromEntries(searchParams),
@@ -46,6 +50,10 @@ export function TransactionsList() {
     transactionListQueryOptions(params),
   );
 
+  const onPrefetch = (id: number) => {
+    void queryClient.query(transactionDetailsQueryOptions(id)).catch(noop);
+  };
+
   if (isPending || isError) {
     return (
       <div className="list-holder">
@@ -82,6 +90,7 @@ export function TransactionsList() {
               items.map((item) => (
                 <TransactionItem
                   onPress={() => onItemPress(item.id)}
+                  onPrefetch={() => onPrefetch(item.id)}
                   key={item.id}
                   data={item}
                 />

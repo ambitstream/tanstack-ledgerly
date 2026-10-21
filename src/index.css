@@ -166,6 +166,14 @@ code {
   }
 }
 
+button.link {
+    border: none;
+    padding: 0;
+    text-align: left;
+    background: none;
+    font-size: 1rem;
+}
+
 .m-t {
   margin-top: 10px;
 }

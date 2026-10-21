@@ -3,6 +3,8 @@ import { queryOptions, keepPreviousData } from "@tanstack/react-query";
 import type { TransactionsSearchParams } from "./schema";
 import { getTransactions, getTransaction } from "./api";
 
+const DETAIL_STALE_TIME = 30_000;
+
 export const transactionKeys = {
   all: ["transactions"] as const,
   lists: () => [...transactionKeys.all, "list"] as const,
@@ -28,5 +30,6 @@ export const transactionDetailsQueryOptions = (id: number) => {
     queryKey: transactionKeys.detail(id),
     queryFn: () => getTransaction(id),
     retry: shouldRetry,
+    staleTime: DETAIL_STALE_TIME,
   });
 };
